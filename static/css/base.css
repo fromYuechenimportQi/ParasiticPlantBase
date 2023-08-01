@@ -1,0 +1,94 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-repeat: repeat-y;
+    background-size: cover;
+
+}
+
+#dodderBrand {
+    size: 50%;
+    width: 25%;
+
+}
+
+#bg {
+    position: relative;
+    width: 1140px;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #fff;
+    border-radius: 10px 10px 10px 10px;
+    min-height: 850px;
+}
+
+#header {
+    border-radius: 10px 10px 0 0;
+    background-color: #C7E8DD;
+    width: 100%;
+}
+
+#title {
+    display: flex;
+    background-color: #139E6C;
+    border-radius: 10px 10px 0 0;
+}
+
+.intro {
+    margin-left: 20px;
+}
+
+#header nav {
+    border-radius: 0px 0px 0 0;
+}
+
+.brand img {
+    width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+
+.navbar {
+    background-color: #0B6E48;
+}
+
+.breadcrumb {
+    font-size: 18px;
+    line-height: 2em;
+    margin-bottom: 3px;
+    margin-left: 10px;
+    background-color: #0B6E48;
+}
+
+.breadcrumb a {
+    color: #fff
+}
+
+#content {
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fff;
+    width: 100%;
+    background-color: #c7e8dd;
+    min-height: 500px;
+}
+
+#footer {
+    position: absolute;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 0px 0px 10px 10px;
+    background-color: #139E6C;
+}
+
+.example>p {
+    font-size: 13px;
+    color: grey;
+    margin-top: 2px;
+
+}

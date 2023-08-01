@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load ppbTags %}
+{% block content %}
+
+<div class="mb-3">
+    <form method="post" action="{% url 'search_species' species %}" style="position:relative">
+        {% csrf_token %}
+        <label for="species-search" class="form-label">
+            <h3>Search in <em>{{species}}</em> database!</h3>
+        </label>
+        <input type="text" class='form-control' name="gene_id" id='species-search'
+            placeholder="Search in {{species}} ..." style="width:85%;display:inline;">
+        <button type="submit" class="btn btn-success" style="display:inline;position:absolute;top:50px">Search</button>
+    </form>
+    <span style="color:grey">
+        <p id="example">e.g. {{species_info.search_example}}</p>
+    </span>
+</div>
+{% if search_result|is_queryset_or_list %}
+{% if not search_result|length %}
+<h4>No hits found!</h4>
+{% else %}
+{% if msg %}
+<strong>{{msg}}</strong>
+{% endif %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Gene ID</th>
+            <th scope="col">Contig</th>
+            <th scope="col">Strand</th>
+            <th scope="col">Location</th>
+            <th scope="col">gene_name</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for gene in search_result %}
+
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <th scope="col"><a href="{% url 'search_result' gene.gene_id %}"
+                    style="color:rgb(143, 135, 235);">{{gene.gene_id}}</a>
+            </th>
+            <th scope="col">{{gene.chromosome}}</th>
+            <th scope="col">{{gene.gene_strand}}</th>
+            <th scope="col"><a
+                    href="{% url 'jbrowse_species' species %}?location={{gene.chromosome}}:{{gene.gene_location}}"
+                    style="color:#008B8B;text-decoration:underline;"> {{gene.gene_location}}
+                </a></th>
+            <th scope="col">{{gene.gene_name}}</th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endif %}
+<script>
+    $('document').ready(function () {
+        let input = $("#species-search");
+        $("button").on("click", () => {
+            if (!input.val()) {
+                alert("Please input a gene id");
+                return false;
+            }
+        })
+    })
+</script>
+
+{% endblock %}

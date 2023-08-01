@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% load ppbTags %}
+<div class="pics">
+    {% for ins in species_info %}
+    <div class="pic"> <a href="{% url 'search_species' ins.species_name|replace_space_to_underline %}"><img
+                src="{% static ins.static_path %}" class="rounded"
+                alt="{{ins.species_name|replace_space_to_underline}}"></a>
+        <span class="subtitle text-center">
+            <p style="margin-bottom:1px"><em>{{ins.species_name}}</em></p>
+        </span>
+        <span class="subtitle text-center"><a
+                href="http://210.72.89.18:9282/{{ins.species_name|replace_space_to_underline}}"
+                style="text-decoration:underline">Jbrowse</a>
+    </div>
+    {% endfor %}
+
+    <div class="clear"></div>
+</div>
+
+
+
+
+
+<style>
+    img {
+        width: 300px;
+        height: 400px;
+    }
+
+
+    .pics>.pic {
+        float: left;
+        margin: 30px 28px 30px 30px;
+    }
+
+    .pics a {
+        display: block;
+    }
+
+    .clear {
+        clear: both;
+    }
+
+    .subtitle {
+        font-size: 25px;
+    }
+</style>
+{% endblock %}
+
+{% block style %}
+
+{% endblock %}

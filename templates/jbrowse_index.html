@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load ppbTags %}
+{% block content %}
+{% for info in species_infos %}
+<p><em>{{info.species_name}}</em><a href="{% url 'jbrowse_species' info.species_name|replace_space_to_underline %}"
+        style="color:blue;text-decoration:underline">
+        {% url 'jbrowse_species' info.species_name|replace_space_to_underline %}
+    </a></p>
+{% endfor %}
+{% endblock %}

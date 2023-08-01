@@ -1,5 +1,18 @@
 .vscode
-
+# data file
+*.fasta
+*.nhr
+*.nin
+*.nsq
+*.gff
+*.fai
+*.phr
+*.pin
+*.psq
+#jbrowse file
+*.gzi
+*.gz1
+*.tbi
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

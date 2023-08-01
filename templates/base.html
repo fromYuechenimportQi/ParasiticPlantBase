@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+
+<body>
+    {% block loading %}
+    {% endblock %}
+    <div class="container-md" id="bg">
+
+        <div id="header">
+            <div class="intro" id="title" style="margin-left:0;">
+                <h2 style="margin:10px auto">Parasitic Plant Base</h2>
+                <!-- <h4 style="font-size:17px;margin-top:0px">A Genomics and Genetics Resource for Dodder</h4> -->
+            </div>
+            <div>
+                <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                    <ol class="breadcrumb" style="font-size:20px;margin-left:0;margin-bottom:0">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}" style="margin-left:10px">Home</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="{% url 'search' %}">Search</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'blast' %}">Blast</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'download' %}">Download</a></li>
+                        <!-- <li class="breadcrumb-item"><a href="{% url 'jbrowse_index' %}">jbrowse</a></li> -->
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div id="content">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+        <div id="footer">
+            <span style="float:left;margin:0 0 0 28%">
+                <p style="line-height: 18px;margin-bottom: 0;font-size:13px;color:white">
+                    本数据库由云南省"生物资源数字化开发应用”(202002AA100007)提供支持。
+                </p>
+                <p style="margin-bottom: 0;font-size:5px;margin-left:13px;color:white">◎2019-2022
+                    中国科学院昆明植物研究所版权所有【滇ICP备05000394号】
+                </p>
+            </span>
+            <span style="margin:8px auto 0px;display:block;float:right">
+                <p style="color:white">ParasiticPlantBase V1.0 2023-5-24</p>
+            </span>
+        </div>
+</body>
+
+<style>
+    .breadcrumb-item>a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .breadcrumb-item>a:hover {
+        color: gray;
+    }
+</style>
+
+</html>

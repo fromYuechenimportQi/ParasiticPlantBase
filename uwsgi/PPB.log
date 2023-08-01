@@ -1,0 +1,617 @@
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 09:36:03 2023] ***
+compiled with version: 11.3.0 on 17 April 2023 14:55:20
+os: Linux-3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017
+nodename: cn04.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 56
+current working directory: /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi
+writing pidfile to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi/PPB.pid
+detected binary path: /lustre/home/web_base/Program/miniconda3/envs/uwsgi/bin/uwsgi
+chdir() to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 4096
+building mime-types dictionary from file /etc/mime.types...1060 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+*** RRDtool library available at 0x556895c40c30 ***
+uwsgi socket 0 bound to TCP address 0.0.0.0:8887 fd 3
+Python version: 3.11.3 | packaged by conda-forge | (main, Apr  6 2023, 08:57:19) [GCC 11.3.0]
+Python main interpreter initialized at 0x556894d06a18
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 250400 bytes (244 KB) for 6 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 8 seconds on interpreter 0x556894d06a18 pid: 167990 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 167990)
+spawned uWSGI worker 1 (pid: 168016, cores: 6)
+Internal Server Error: /blastResult/31416e05fc6041a7fa9296c5d0ce68a5692e81b4
+Traceback (most recent call last):
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/views/decorators/cache.py", line 40, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/PPBWidgets/views.py", line 159, in blast_result
+    result = Blast().show_result(token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/api/blastTools.py", line 195, in show_result
+    blast_result_json = self.parse()
+                        ^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/api/blastTools.py", line 61, in parse
+    self.blast_xml_handle = open(self.path_of_result)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+31416e05fc6041a7fa9296c5d0ce68a5692e81b4'
+[pid: 168016|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 904 bytes} [Tue Jul 18 09:36:19 2023] GET /blastResult/31416e05fc6041a7fa9296c5d0ce68a5692e81b4 => generated 69841 bytes in 3441 msecs (HTTP/1.1 500) 6 headers in 201 bytes (1 switches on core 0)
+[pid: 168016|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 799 bytes} [Tue Jul 18 09:36:25 2023] GET /blast => generated 4157 bytes in 788 msecs (HTTP/1.1 200) 8 headers in 342 bytes (2 switches on core 3)
+[pid: 168016|app: 0|req: 3/3] 127.0.0.1 () {36 vars in 693 bytes} [Tue Jul 18 09:36:26 2023] GET /blast?_=1689644186669 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 5)
+Running 5 ~/Program/miniconda3/envs/web_create/bin/~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+6e20c21bf4d0d0d50ec41d8c1f605e46a859c24b -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+215f996ef0cffab0b9c23735016d5a739a1105b3 -outfmt 5
+/bin/sh: /lustre/home/web_base/Program/miniconda3/envs/web_create/bin/~/Program/miniconda3/bin/blastn: No such file or directory
+
+[pid: 168016|app: 0|req: 4/4] 127.0.0.1 () {44 vars in 920 bytes} [Tue Jul 18 09:36:28 2023] POST /blast => generated 0 bytes in 21 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 2)
+Internal Server Error: /blastResult/215f996ef0cffab0b9c23735016d5a739a1105b3
+Traceback (most recent call last):
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Program/miniconda3/envs/uwsgi/lib/python3.11/site-packages/django/views/decorators/cache.py", line 40, in _cache_controlled
+    response = viewfunc(request, *args, **kw)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/PPBWidgets/views.py", line 159, in blast_result
+    result = Blast().show_result(token)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/api/blastTools.py", line 195, in show_result
+    blast_result_json = self.parse()
+                        ^^^^^^^^^^^^
+  File "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/api/blastTools.py", line 61, in parse
+    self.blast_xml_handle = open(self.path_of_result)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+215f996ef0cffab0b9c23735016d5a739a1105b3'
+[pid: 168016|app: 0|req: 5/5] 127.0.0.1 () {38 vars in 904 bytes} [Tue Jul 18 09:36:28 2023] GET /blastResult/215f996ef0cffab0b9c23735016d5a739a1105b3 => generated 69841 bytes in 38 msecs (HTTP/1.1 500) 6 headers in 201 bytes (1 switches on core 4)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 09:37:38 2023] ***
+compiled with version: 11.3.0 on 17 April 2023 14:55:20
+os: Linux-3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017
+nodename: cn04.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 56
+current working directory: /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi
+writing pidfile to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi/PPB.pid
+detected binary path: /lustre/home/web_base/Program/miniconda3/envs/uwsgi/bin/uwsgi
+chdir() to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 4096
+building mime-types dictionary from file /etc/mime.types...1060 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+*** RRDtool library available at 0x555bd5d54c30 ***
+uwsgi socket 0 bound to TCP address 0.0.0.0:8887 fd 3
+Python version: 3.11.3 | packaged by conda-forge | (main, Apr  6 2023, 08:57:19) [GCC 11.3.0]
+Python main interpreter initialized at 0x555bd4f48a18
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 250400 bytes (244 KB) for 6 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x555bd4f48a18 pid: 168164 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 168164)
+spawned uWSGI worker 1 (pid: 168166, cores: 6)
+[pid: 168166|app: 0|req: 1/1] 127.0.0.1 () {36 vars in 799 bytes} [Tue Jul 18 09:37:40 2023] GET /blast => generated 4157 bytes in 441 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 2/2] 127.0.0.1 () {36 vars in 693 bytes} [Tue Jul 18 09:37:40 2023] GET /blast?_=1689644261372 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 3)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+9089512102a6ba3478b08f65b490fb7419791c5e -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+4f993dc3917bd95d8734b31e4d4b83f132a4f4f1 -outfmt 5
+
+[pid: 168166|app: 0|req: 3/3] 127.0.0.1 () {44 vars in 920 bytes} [Tue Jul 18 09:37:42 2023] POST /blast => generated 0 bytes in 1527 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 4/4] 127.0.0.1 () {38 vars in 904 bytes} [Tue Jul 18 09:37:43 2023] GET /blastResult/4f993dc3917bd95d8734b31e4d4b83f132a4f4f1 => generated 2725 bytes in 452 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/5] 127.0.0.1 () {34 vars in 710 bytes} [Tue Jul 18 09:37:44 2023] GET /static/js/blast_result.js => generated 2496 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 5)
+[pid: 168166|app: 0|req: 5/6] 127.0.0.1 () {36 vars in 834 bytes} [Tue Jul 18 09:37:44 2023] GET /blastResult/4f993dc3917bd95d8734b31e4d4b83f132a4f4f1?_=1689644264686 => generated 1012264 bytes in 98 msecs (HTTP/1.1 200) 6 headers in 187 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 6/7] 127.0.0.1 () {36 vars in 870 bytes} [Tue Jul 18 09:37:55 2023] GET /search_result/C055N0077M0.1 => generated 14427 bytes in 759 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 7/8] 127.0.0.1 () {36 vars in 834 bytes} [Tue Jul 18 09:38:02 2023] GET /blastResult/4f993dc3917bd95d8734b31e4d4b83f132a4f4f1?_=1689644282810 => generated 1012264 bytes in 102 msecs (HTTP/1.1 200) 6 headers in 187 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 8/9] 127.0.0.1 () {36 vars in 830 bytes} [Tue Jul 18 09:38:03 2023] GET /search/ => generated 3508 bytes in 15 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 9/10] 127.0.0.1 () {36 vars in 771 bytes} [Tue Jul 18 09:38:04 2023] GET / => generated 5680 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 10/11] 127.0.0.1 () {36 vars in 778 bytes} [Tue Jul 18 09:38:05 2023] GET /search/ => generated 3508 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 11/12] 127.0.0.1 () {36 vars in 781 bytes} [Tue Jul 18 09:38:06 2023] GET /blast => generated 4157 bytes in 3 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 12/13] 127.0.0.1 () {36 vars in 693 bytes} [Tue Jul 18 09:38:06 2023] GET /blast?_=1689644286583 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 13/14] 127.0.0.1 () {34 vars in 700 bytes} [Tue Jul 18 13:50:30 2023] GET / => generated 5680 bytes in 195 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 14/15] 127.0.0.1 () {34 vars in 643 bytes} [Tue Jul 18 13:50:31 2023] GET /favicon.ico => generated 4153 bytes in 272 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 15/16] 127.0.0.1 () {36 vars in 815 bytes} [Tue Jul 18 13:50:33 2023] GET /search_species/Phelipanche_aegyptiaca => generated 3598 bytes in 180 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 16/17] 127.0.0.1 () {36 vars in 788 bytes} [Tue Jul 18 13:50:35 2023] GET /blast => generated 4157 bytes in 79 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/18] 127.0.0.1 () {34 vars in 615 bytes} [Tue Jul 18 13:50:36 2023] GET /static/js/blast.js => generated 4771 bytes in 20 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 168166|app: 0|req: 17/19] 127.0.0.1 () {36 vars in 659 bytes} [Tue Jul 18 13:50:36 2023] GET /blast?_=1689659435626 => generated 2898 bytes in 15 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 2)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+11de41966251b6bccb2ea167e1eacd2c63a3c54c -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+d6b304a298604dad2a644f17bb88036dd27b3730 -outfmt 5
+
+[pid: 168166|app: 0|req: 18/20] 127.0.0.1 () {44 vars in 897 bytes} [Tue Jul 18 13:50:56 2023] POST /blast => generated 0 bytes in 1293 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 19/21] 127.0.0.1 () {38 vars in 881 bytes} [Tue Jul 18 13:50:58 2023] GET /blastResult/d6b304a298604dad2a644f17bb88036dd27b3730 => generated 2725 bytes in 141 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/22] 127.0.0.1 () {34 vars in 676 bytes} [Tue Jul 18 13:50:58 2023] GET /static/js/blast_result.js => generated 2496 bytes in 33 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 4)
+[pid: 168166|app: 0|req: 20/23] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 13:50:58 2023] GET /blastResult/d6b304a298604dad2a644f17bb88036dd27b3730?_=1689659457959 => generated 6022 bytes in 5 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 24/24] 127.0.0.1 () {34 vars in 700 bytes} [Tue Jul 18 13:51:46 2023] GET / => generated 5680 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 26/25] 127.0.0.1 () {36 vars in 741 bytes} [Tue Jul 18 13:51:51 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 27/26] 127.0.0.1 () {36 vars in 755 bytes} [Tue Jul 18 13:51:54 2023] GET /search/ => generated 3508 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 28/27] 127.0.0.1 () {44 vars in 903 bytes} [Tue Jul 18 13:52:05 2023] POST /search/ => generated 4472 bytes in 285 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 29/28] 127.0.0.1 () {36 vars in 814 bytes} [Tue Jul 18 13:52:07 2023] GET /search_result/T99112N1C0427G00068 => generated 21590 bytes in 272 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 29/29] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 13:51:50 2023] GET /search_result/T99112N1C0427G00068.1 => generated 21590 bytes in 29761 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 29/30] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 13:51:01 2023] GET /search_result/T99112N1C0427G00068.1 => generated 21590 bytes in 78350 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 29/31] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 13:51:08 2023] GET /search_result/T99112N1C0427G00068.1 => generated 21590 bytes in 70952 msecs (HTTP/1.1 200) 5 headers in 168 bytes (2 switches on core 0)
+[pid: 168166|app: 0|req: 29/32] 127.0.0.1 () {34 vars in 770 bytes} [Tue Jul 18 13:51:40 2023] GET /search_result/T99112N1C0427G00068.1 => generated 21590 bytes in 38916 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 30/33] 127.0.0.1 () {36 vars in 790 bytes} [Tue Jul 18 13:56:00 2023] GET /search/ => generated 3508 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 31/34] 127.0.0.1 () {36 vars in 758 bytes} [Tue Jul 18 13:56:01 2023] GET /blast => generated 4157 bytes in 4 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 32/35] 127.0.0.1 () {36 vars in 659 bytes} [Tue Jul 18 13:56:01 2023] GET /blast?_=1689659760768 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 4)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+ea0a83584f603fa02906405e2dc5f9d59908c138 -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+e4967f0c6d721cd64729e1fda9a5e6a87d77e0be -outfmt 5
+
+[pid: 168166|app: 0|req: 33/36] 127.0.0.1 () {44 vars in 897 bytes} [Tue Jul 18 13:57:42 2023] POST /blast => generated 0 bytes in 127 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 34/37] 127.0.0.1 () {38 vars in 881 bytes} [Tue Jul 18 13:57:43 2023] GET /blastResult/e4967f0c6d721cd64729e1fda9a5e6a87d77e0be => generated 2725 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 35/38] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 13:57:43 2023] GET /blastResult/e4967f0c6d721cd64729e1fda9a5e6a87d77e0be?_=1689659862718 => generated 2920 bytes in 4 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 36/39] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 13:58:07 2023] GET /search_result/T99112N1C0427G00071.1 => generated 34648 bytes in 764 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 37/40] 127.0.0.1 () {34 vars in 700 bytes} [Tue Jul 18 14:02:20 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 38/41] 127.0.0.1 () {34 vars in 643 bytes} [Tue Jul 18 14:02:21 2023] GET /favicon.ico => generated 4153 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 39/42] 127.0.0.1 () {36 vars in 815 bytes} [Tue Jul 18 14:02:34 2023] GET /search_species/Phelipanche_aegyptiaca => generated 3598 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 40/43] 127.0.0.1 () {36 vars in 788 bytes} [Tue Jul 18 14:02:37 2023] GET /blast => generated 4157 bytes in 3 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 41/44] 127.0.0.1 () {36 vars in 659 bytes} [Tue Jul 18 14:02:37 2023] GET /blast?_=1689660156786 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 4)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+f2be141228a308917fd6d6c6d5e3261b79ea9fa9 -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+d5820e216b50ce4cea16440bcc41869f845d519f -outfmt 5
+
+[pid: 168166|app: 0|req: 42/45] 127.0.0.1 () {44 vars in 898 bytes} [Tue Jul 18 14:02:47 2023] POST /blast => generated 0 bytes in 286 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 43/46] 127.0.0.1 () {38 vars in 881 bytes} [Tue Jul 18 14:02:47 2023] GET /blastResult/d5820e216b50ce4cea16440bcc41869f845d519f => generated 2725 bytes in 22 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 44/47] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 14:02:48 2023] GET /blastResult/d5820e216b50ce4cea16440bcc41869f845d519f?_=1689660167338 => generated 164878 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 186 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 45/48] 127.0.0.1 () {36 vars in 788 bytes} [Tue Jul 18 14:03:49 2023] GET /blast => generated 4157 bytes in 4 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 46/49] 127.0.0.1 () {36 vars in 659 bytes} [Tue Jul 18 14:03:49 2023] GET /blast?_=1689660228549 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 4)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+e8d44b4e722164cabaf02c2ac0b60f1a27f8007b -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+7614db0e1397aeb0f1e3d7956c3dcd00a504a619 -outfmt 5
+
+[pid: 168166|app: 0|req: 47/50] 127.0.0.1 () {44 vars in 898 bytes} [Tue Jul 18 14:08:39 2023] POST /blast => generated 0 bytes in 200 msecs (HTTP/1.1 302) 7 headers in 257 bytes (2 switches on core 0)
+[pid: 168166|app: 0|req: 48/51] 127.0.0.1 () {38 vars in 881 bytes} [Tue Jul 18 14:08:39 2023] GET /blastResult/7614db0e1397aeb0f1e3d7956c3dcd00a504a619 => generated 2725 bytes in 21 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 49/52] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 14:08:40 2023] GET /blastResult/7614db0e1397aeb0f1e3d7956c3dcd00a504a619?_=1689660519157 => generated 105456 bytes in 19 msecs (HTTP/1.1 200) 6 headers in 186 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 50/53] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 14:09:28 2023] GET /search_result/T99112N1C0698G00004.1 => generated 25050 bytes in 1163 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 51/54] 127.0.0.1 () {36 vars in 786 bytes} [Tue Jul 18 14:13:51 2023] GET /blast => generated 4157 bytes in 29 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 52/55] 127.0.0.1 () {36 vars in 659 bytes} [Tue Jul 18 14:13:52 2023] GET /blast?_=1689660831520 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 0)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+88232d7a5c210cd72a658fa434da5acad52c7301 -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+8758be79fe4828302d7526c5d2ba348fc9fcf1aa -outfmt 5
+
+[pid: 168166|app: 0|req: 53/56] 127.0.0.1 () {44 vars in 897 bytes} [Tue Jul 18 14:13:56 2023] POST /blast => generated 0 bytes in 197 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 54/57] 127.0.0.1 () {38 vars in 881 bytes} [Tue Jul 18 14:13:56 2023] GET /blastResult/8758be79fe4828302d7526c5d2ba348fc9fcf1aa => generated 2725 bytes in 15 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 55/58] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 14:13:57 2023] GET /blastResult/8758be79fe4828302d7526c5d2ba348fc9fcf1aa?_=1689660836381 => generated 63796 bytes in 14 msecs (HTTP/1.1 200) 6 headers in 185 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 57/59] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 14:14:06 2023] GET /search_result/T99112N1C1312G00007.1 => generated 17333 bytes in 6416 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 57/60] 127.0.0.1 () {36 vars in 863 bytes} [Tue Jul 18 14:13:59 2023] GET /search_result/T99112N1C1312G00007.1 => generated 17333 bytes in 13356 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 58/61] 127.0.0.1 () {36 vars in 800 bytes} [Tue Jul 18 14:15:12 2023] GET /blastResult/8758be79fe4828302d7526c5d2ba348fc9fcf1aa?_=1689660911153 => generated 63796 bytes in 14 msecs (HTTP/1.1 200) 6 headers in 185 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 59/62] 127.0.0.1 () {34 vars in 700 bytes} [Tue Jul 18 15:44:24 2023] GET / => generated 5680 bytes in 116 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 60/63] 127.0.0.1 () {34 vars in 643 bytes} [Tue Jul 18 15:44:25 2023] GET /favicon.ico => generated 4153 bytes in 52 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 61/64] 127.0.0.1 () {36 vars in 805 bytes} [Tue Jul 18 15:44:26 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 16 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 62/65] 127.0.0.1 () {36 vars in 791 bytes} [Tue Jul 18 15:44:28 2023] GET /download/ => generated 3735 bytes in 36 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 63/66] 127.0.0.1 () {28 vars in 427 bytes} [Tue Jul 18 22:01:34 2023] GET /robots.txt => generated 4150 bytes in 939 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/67] 127.0.0.1 () {36 vars in 679 bytes} [Tue Jul 18 22:01:36 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 15 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/68] 127.0.0.1 () {36 vars in 686 bytes} [Tue Jul 18 22:01:37 2023] GET /static/css/base.css => generated 1367 bytes in 8 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/69] 127.0.0.1 () {36 vars in 732 bytes} [Tue Jul 18 22:01:38 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 21 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 4)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 64/70] 127.0.0.1 () {30 vars in 394 bytes} [Tue Jul 18 22:02:21 2023] GET /favicon.ico => generated 4153 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 65/71] 127.0.0.1 () {32 vars in 707 bytes} [Tue Jul 18 22:36:13 2023] GET /download/ => generated 3735 bytes in 44 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 66/72] 127.0.0.1 () {34 vars in 560 bytes} [Wed Jul 19 08:15:14 2023] GET /robots.txt => generated 4145 bytes in 828 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 67/73] 127.0.0.1 () {34 vars in 540 bytes} [Wed Jul 19 08:15:40 2023] GET / => generated 5680 bytes in 14 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 68/74] 127.0.0.1 () {36 vars in 754 bytes} [Wed Jul 19 09:21:50 2023] GET / => generated 5680 bytes in 124 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 69/75] 127.0.0.1 () {34 vars in 680 bytes} [Wed Jul 19 09:21:51 2023] GET /favicon.ico => generated 4153 bytes in 143 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 70/76] 127.0.0.1 () {34 vars in 723 bytes} [Wed Jul 19 09:58:02 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 71/77] 127.0.0.1 () {34 vars in 890 bytes} [Wed Jul 19 10:29:58 2023] GET / => generated 5680 bytes in 95 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/78] 127.0.0.1 () {34 vars in 795 bytes} [Wed Jul 19 10:29:59 2023] GET /static/css/base.css => generated 1367 bytes in 73 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/79] 127.0.0.1 () {34 vars in 788 bytes} [Wed Jul 19 10:29:59 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 39 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/80] 127.0.0.1 () {34 vars in 834 bytes} [Wed Jul 19 10:29:59 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 46 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/81] 127.0.0.1 () {34 vars in 841 bytes} [Wed Jul 19 10:29:59 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 89 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/82] 127.0.0.1 () {34 vars in 953 bytes} [Wed Jul 19 10:29:59 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 39 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/83] 127.0.0.1 () {34 vars in 951 bytes} [Wed Jul 19 10:29:59 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/84] 127.0.0.1 () {34 vars in 943 bytes} [Wed Jul 19 10:29:59 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 25 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/85] 127.0.0.1 () {34 vars in 899 bytes} [Wed Jul 19 10:29:59 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 53 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/86] 127.0.0.1 () {34 vars in 885 bytes} [Wed Jul 19 10:29:59 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 40 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 5)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 72/87] 127.0.0.1 () {34 vars in 847 bytes} [Wed Jul 19 10:30:01 2023] GET /favicon.ico => generated 4153 bytes in 51 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 73/88] 127.0.0.1 () {36 vars in 945 bytes} [Wed Jul 19 10:30:31 2023] GET /search/ => generated 3508 bytes in 213 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 74/89] 127.0.0.1 () {34 vars in 673 bytes} [Wed Jul 19 15:24:13 2023] GET / => generated 5680 bytes in 726 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/90] 127.0.0.1 () {32 vars in 551 bytes} [Wed Jul 19 15:24:13 2023] GET /static/css/base.css => generated 1367 bytes in 25 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/91] 127.0.0.1 () {32 vars in 544 bytes} [Wed Jul 19 15:24:13 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/92] 127.0.0.1 () {32 vars in 590 bytes} [Wed Jul 19 15:24:13 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: 0|req: 75/93] 127.0.0.1 () {34 vars in 795 bytes} [Wed Jul 19 15:24:15 2023] GET / => generated 5680 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 76/94] 127.0.0.1 () {34 vars in 700 bytes} [Wed Jul 19 20:09:24 2023] GET / => generated 5680 bytes in 855 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 77/95] 127.0.0.1 () {34 vars in 643 bytes} [Wed Jul 19 20:09:25 2023] GET /favicon.ico => generated 4153 bytes in 85 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 78/96] 127.0.0.1 () {36 vars in 805 bytes} [Wed Jul 19 20:09:27 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 83 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 80/97] 127.0.0.1 () {44 vars in 978 bytes} [Wed Jul 19 20:09:38 2023] POST /search_species/Cuscuta_australis => generated 4506 bytes in 1535 msecs (HTTP/1.1 200) 7 headers in 317 bytes (2 switches on core 3)
+[pid: 168166|app: 0|req: 82/98] 127.0.0.1 () {36 vars in 823 bytes} [Wed Jul 19 20:09:41 2023] GET /search_result/C002N0491E0 => generated 36698 bytes in 12632 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 82/99] 127.0.0.1 () {36 vars in 823 bytes} [Wed Jul 19 20:09:48 2023] GET /search_result/C002N0491E0 => generated 36698 bytes in 6217 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 82/100] 127.0.0.1 () {44 vars in 978 bytes} [Wed Jul 19 20:09:30 2023] POST /search_species/Cuscuta_australis => generated 3610 bytes in 32923 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 83/101] 127.0.0.1 () {32 vars in 626 bytes} [Wed Jul 19 21:12:26 2023] GET / => generated 5680 bytes in 31 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/102] 127.0.0.1 () {32 vars in 546 bytes} [Wed Jul 19 21:12:29 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 97 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/103] 127.0.0.1 () {32 vars in 553 bytes} [Wed Jul 19 21:12:29 2023] GET /static/css/base.css => generated 1367 bytes in 62 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/104] 127.0.0.1 () {32 vars in 599 bytes} [Wed Jul 19 21:12:29 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 79 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/105] 127.0.0.1 () {32 vars in 592 bytes} [Wed Jul 19 21:12:29 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 29 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/106] 127.0.0.1 () {32 vars in 689 bytes} [Wed Jul 19 21:12:30 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 28 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/107] 127.0.0.1 () {32 vars in 679 bytes} [Wed Jul 19 21:12:30 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 24 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/108] 127.0.0.1 () {32 vars in 687 bytes} [Wed Jul 19 21:12:30 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/109] 127.0.0.1 () {32 vars in 635 bytes} [Wed Jul 19 21:12:30 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 37 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/110] 127.0.0.1 () {32 vars in 621 bytes} [Wed Jul 19 21:12:30 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 44 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 5)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 84/111] 127.0.0.1 () {32 vars in 583 bytes} [Wed Jul 19 21:12:31 2023] GET /favicon.ico => generated 4153 bytes in 12 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 85/112] 127.0.0.1 () {34 vars in 696 bytes} [Thu Jul 20 00:51:49 2023] GET / => generated 5680 bytes in 652 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+[pid: 168166|app: -1|req: -1/113] 127.0.0.1 () {32 vars in 692 bytes} [Thu Jul 20 00:51:50 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 44 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/114] 127.0.0.1 () {32 vars in 646 bytes} [Thu Jul 20 00:51:50 2023] GET /static/css/base.css => generated 1367 bytes in 26 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/115] 127.0.0.1 () {32 vars in 685 bytes} [Thu Jul 20 00:51:50 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/116] 127.0.0.1 () {32 vars in 736 bytes} [Thu Jul 20 00:51:50 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 39 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/117] 127.0.0.1 () {32 vars in 790 bytes} [Thu Jul 20 00:51:50 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 40 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/118] 127.0.0.1 () {32 vars in 788 bytes} [Thu Jul 20 00:51:50 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 43 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/119] 127.0.0.1 () {32 vars in 639 bytes} [Thu Jul 20 00:51:51 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 20 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/120] 127.0.0.1 () {32 vars in 722 bytes} [Thu Jul 20 00:51:51 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 44 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/121] 127.0.0.1 () {32 vars in 780 bytes} [Thu Jul 20 00:51:51 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 17 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: 0|req: 86/122] 127.0.0.1 () {34 vars in 540 bytes} [Thu Jul 20 04:45:46 2023] GET / => generated 5680 bytes in 138 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 87/123] 127.0.0.1 () {28 vars in 504 bytes} [Thu Jul 20 22:43:31 2023] GET /jbrowse/Gastrodia_elata => generated 5957 bytes in 1001 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 88/124] 127.0.0.1 () {34 vars in 560 bytes} [Fri Jul 21 09:13:54 2023] GET /robots.txt => generated 4145 bytes in 866 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+Not Found: /static/img/dodder_brand.png
+[pid: 168166|app: 0|req: 89/125] 127.0.0.1 () {34 vars in 594 bytes} [Fri Jul 21 09:14:05 2023] GET /static/img/dodder_brand.png => generated 4196 bytes in 30 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 90/126] 127.0.0.1 () {34 vars in 700 bytes} [Fri Jul 21 10:06:59 2023] GET / => generated 5680 bytes in 96 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 91/127] 127.0.0.1 () {34 vars in 643 bytes} [Fri Jul 21 10:07:01 2023] GET /favicon.ico => generated 4153 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 92/128] 127.0.0.1 () {36 vars in 805 bytes} [Fri Jul 21 10:07:05 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 242 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 93/129] 127.0.0.1 () {44 vars in 978 bytes} [Fri Jul 21 10:07:08 2023] POST /search_species/Cuscuta_australis => generated 4502 bytes in 2433 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 95/130] 127.0.0.1 () {36 vars in 656 bytes} [Fri Jul 21 10:07:20 2023] GET / => generated 5680 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/131] 127.0.0.1 () {34 vars in 593 bytes} [Fri Jul 21 10:07:20 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 18 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/133] 127.0.0.1 () {34 vars in 639 bytes} [Fri Jul 21 10:07:20 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 24 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/133] 127.0.0.1 () {34 vars in 600 bytes} [Fri Jul 21 10:07:20 2023] GET /static/css/base.css => generated 1367 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/134] 127.0.0.1 () {34 vars in 646 bytes} [Fri Jul 21 10:07:20 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 87 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/135] 127.0.0.1 () {34 vars in 711 bytes} [Fri Jul 21 10:07:20 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 23 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/136] 127.0.0.1 () {34 vars in 657 bytes} [Fri Jul 21 10:07:21 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 38 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/137] 127.0.0.1 () {34 vars in 701 bytes} [Fri Jul 21 10:07:21 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 37 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/138] 127.0.0.1 () {34 vars in 709 bytes} [Fri Jul 21 10:07:21 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 46 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/139] 127.0.0.1 () {34 vars in 643 bytes} [Fri Jul 21 10:07:21 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 42 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 2)
+[pid: 168166|app: 0|req: 96/140] 127.0.0.1 () {30 vars in 634 bytes} [Fri Jul 21 10:07:31 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 12 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/144] 127.0.0.1 () {34 vars in 625 bytes} [Fri Jul 21 10:07:32 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/144] 127.0.0.1 () {34 vars in 671 bytes} [Fri Jul 21 10:07:32 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/144] 127.0.0.1 () {34 vars in 678 bytes} [Fri Jul 21 10:07:32 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/144] 127.0.0.1 () {34 vars in 632 bytes} [Fri Jul 21 10:07:32 2023] GET /static/css/base.css => generated 1367 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: 0|req: 97/145] 127.0.0.1 () {36 vars in 720 bytes} [Fri Jul 21 10:07:32 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 59 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 0)
+[pid: 168166|app: -1|req: -1/146] 127.0.0.1 () {36 vars in 735 bytes} [Fri Jul 21 10:07:32 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/148] 127.0.0.1 () {36 vars in 689 bytes} [Fri Jul 21 10:07:32 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/148] 127.0.0.1 () {36 vars in 682 bytes} [Fri Jul 21 10:07:32 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/149] 127.0.0.1 () {36 vars in 728 bytes} [Fri Jul 21 10:07:32 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 2)
+[pid: 168166|app: 0|req: 98/150] 127.0.0.1 () {36 vars in 823 bytes} [Fri Jul 21 10:07:12 2023] GET /search_result/C088N0041E0 => generated 35855 bytes in 20623 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 98/151] 127.0.0.1 () {36 vars in 823 bytes} [Fri Jul 21 10:07:32 2023] GET /search_result/C088N0041E0 => generated 35855 bytes in 363 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 99/152] 127.0.0.1 () {36 vars in 706 bytes} [Fri Jul 21 10:08:11 2023] GET /search_result/C088N0041E0 => generated 35855 bytes in 143 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/153] 127.0.0.1 () {34 vars in 618 bytes} [Fri Jul 21 10:08:11 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/155] 127.0.0.1 () {34 vars in 625 bytes} [Fri Jul 21 10:08:11 2023] GET /static/css/base.css => generated 1367 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/156] 127.0.0.1 () {34 vars in 664 bytes} [Fri Jul 21 10:08:11 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/156] 127.0.0.1 () {34 vars in 671 bytes} [Fri Jul 21 10:08:11 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 5)
+[pid: 168166|app: 0|req: 100/157] 127.0.0.1 () {34 vars in 710 bytes} [Fri Jul 21 10:10:07 2023] GET /blast => generated 4157 bytes in 16 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 0)
+[pid: 168166|app: -1|req: -1/158] 127.0.0.1 () {36 vars in 670 bytes} [Fri Jul 21 10:10:07 2023] GET /static/js/blast.js => generated 0 bytes in 1 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 3)
+[pid: 168166|app: 0|req: 101/159] 127.0.0.1 () {36 vars in 659 bytes} [Fri Jul 21 10:10:08 2023] GET /blast?_=1689905407168 => generated 2898 bytes in 15 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 102/160] 127.0.0.1 () {36 vars in 666 bytes} [Fri Jul 21 10:10:47 2023] GET /blast => generated 4157 bytes in 4 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/161] 127.0.0.1 () {36 vars in 708 bytes} [Fri Jul 21 10:10:47 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/163] 127.0.0.1 () {36 vars in 662 bytes} [Fri Jul 21 10:10:47 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/163] 127.0.0.1 () {36 vars in 655 bytes} [Fri Jul 21 10:10:47 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/164] 127.0.0.1 () {36 vars in 701 bytes} [Fri Jul 21 10:10:47 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/165] 127.0.0.1 () {36 vars in 645 bytes} [Fri Jul 21 10:10:47 2023] GET /static/js/blast.js => generated 4771 bytes in 15 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 3)
+[pid: 168166|app: 0|req: 103/166] 127.0.0.1 () {38 vars in 689 bytes} [Fri Jul 21 10:10:48 2023] GET /blast?_=1689905447972 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 104/167] 127.0.0.1 () {36 vars in 776 bytes} [Fri Jul 21 10:10:51 2023] GET /blast => generated 4157 bytes in 4 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 105/168] 127.0.0.1 () {36 vars in 659 bytes} [Fri Jul 21 10:10:52 2023] GET /blast?_=1689905451397 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 5)
+Running 5 ~/Program/miniconda3/bin/blastn -db /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/cds.fasta -query /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/query+585366c1e7b691c3f530af6db9fdf098355de671 -out /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/blast_cache/result+575be5cb1824a06aef3529bbcaa3dcd6a1a1c236 -outfmt 5
+
+[pid: 168166|app: 0|req: 106/169] 127.0.0.1 () {44 vars in 898 bytes} [Fri Jul 21 10:10:54 2023] POST /blast => generated 0 bytes in 1170 msecs (HTTP/1.1 302) 7 headers in 257 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 107/170] 127.0.0.1 () {38 vars in 881 bytes} [Fri Jul 21 10:10:55 2023] GET /blastResult/575be5cb1824a06aef3529bbcaa3dcd6a1a1c236 => generated 2725 bytes in 164 msecs (HTTP/1.1 200) 6 headers in 192 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/171] 127.0.0.1 () {36 vars in 731 bytes} [Fri Jul 21 10:10:55 2023] GET /static/js/blast_result.js => generated 0 bytes in 1 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 3)
+[pid: 168166|app: 0|req: 108/172] 127.0.0.1 () {36 vars in 800 bytes} [Fri Jul 21 10:10:56 2023] GET /blastResult/575be5cb1824a06aef3529bbcaa3dcd6a1a1c236?_=1689905455555 => generated 14370 bytes in 3 msecs (HTTP/1.1 200) 6 headers in 185 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 111/173] 127.0.0.1 () {36 vars in 847 bytes} [Fri Jul 21 10:11:05 2023] GET /search_result/C002N0491E0.1 => generated 36698 bytes in 31570 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 111/174] 127.0.0.1 () {36 vars in 847 bytes} [Fri Jul 21 10:11:12 2023] GET /search_result/C002N0491E0.1 => generated 36698 bytes in 24371 msecs (HTTP/1.1 200) 5 headers in 168 bytes (2 switches on core 5)
+[pid: 168166|app: 0|req: 111/175] 127.0.0.1 () {36 vars in 847 bytes} [Fri Jul 21 10:11:24 2023] GET /search_result/C002N0491E0.1 => generated 36698 bytes in 12318 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 112/176] 127.0.0.1 () {32 vars in 558 bytes} [Fri Jul 21 11:04:00 2023] GET / => generated 5680 bytes in 31 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/177] 127.0.0.1 () {32 vars in 583 bytes} [Fri Jul 21 11:04:00 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/179] 127.0.0.1 () {32 vars in 611 bytes} [Fri Jul 21 11:04:00 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/180] 127.0.0.1 () {32 vars in 537 bytes} [Fri Jul 21 11:04:00 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/180] 127.0.0.1 () {32 vars in 565 bytes} [Fri Jul 21 11:04:00 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/181] 127.0.0.1 () {32 vars in 673 bytes} [Fri Jul 21 11:04:00 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/182] 127.0.0.1 () {32 vars in 675 bytes} [Fri Jul 21 11:04:00 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/183] 127.0.0.1 () {32 vars in 621 bytes} [Fri Jul 21 11:04:00 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/184] 127.0.0.1 () {32 vars in 665 bytes} [Fri Jul 21 11:04:00 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/185] 127.0.0.1 () {32 vars in 607 bytes} [Fri Jul 21 11:04:00 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 113/186] 127.0.0.1 () {30 vars in 426 bytes} [Fri Jul 21 11:04:02 2023] GET /favicon.ico => generated 4153 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 114/187] 127.0.0.1 () {32 vars in 596 bytes} [Fri Jul 21 11:04:05 2023] GET /search_species/Orobanche_cumana => generated 3580 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 3)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 115/188] 127.0.0.1 () {30 vars in 426 bytes} [Fri Jul 21 11:04:05 2023] GET /favicon.ico => generated 4153 bytes in 11 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 116/189] 127.0.0.1 () {30 vars in 505 bytes} [Fri Jul 21 11:05:01 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/190] 127.0.0.1 () {30 vars in 607 bytes} [Fri Jul 21 11:05:05 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/191] 127.0.0.1 () {30 vars in 574 bytes} [Fri Jul 21 11:05:55 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 117/192] 127.0.0.1 () {28 vars in 427 bytes} [Fri Jul 21 20:16:12 2023] GET /robots.txt => generated 4150 bytes in 1232 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 118/193] 127.0.0.1 () {34 vars in 540 bytes} [Sat Jul 22 08:25:30 2023] GET / => generated 5680 bytes in 1005 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 119/194] 127.0.0.1 () {28 vars in 458 bytes} [Sat Jul 22 08:25:34 2023] GET / => generated 5680 bytes in 9 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/195] 127.0.0.1 () {34 vars in 619 bytes} [Sat Jul 22 08:41:27 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 83 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/196] 127.0.0.1 () {34 vars in 565 bytes} [Sat Jul 22 08:41:27 2023] GET /static/css/base.css => generated 1367 bytes in 53 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/197] 127.0.0.1 () {34 vars in 611 bytes} [Sat Jul 22 08:41:27 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 58 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/198] 127.0.0.1 () {34 vars in 573 bytes} [Sat Jul 22 08:41:27 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 23 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/199] 127.0.0.1 () {34 vars in 624 bytes} [Sat Jul 22 08:41:36 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 0)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 120/200] 127.0.0.1 () {34 vars in 560 bytes} [Sat Jul 22 08:41:37 2023] GET /robots.txt => generated 4145 bytes in 125 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/201] 127.0.0.1 () {34 vars in 578 bytes} [Sat Jul 22 08:41:40 2023] GET /static/css/base.css => generated 1367 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/202] 127.0.0.1 () {34 vars in 586 bytes} [Sat Jul 22 08:41:41 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/203] 127.0.0.1 () {28 vars in 550 bytes} [Sat Jul 22 08:41:46 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 1)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 121/204] 127.0.0.1 () {28 vars in 480 bytes} [Sat Jul 22 13:42:29 2023] GET /favicon.ico => generated 4153 bytes in 194 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/205] 127.0.0.1 () {34 vars in 668 bytes} [Sat Jul 22 18:21:28 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 273 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 122/206] 127.0.0.1 () {34 vars in 584 bytes} [Sat Jul 22 20:43:25 2023] GET /static/img/waiting.gif => generated 4181 bytes in 909 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 123/207] 127.0.0.1 () {34 vars in 602 bytes} [Sat Jul 22 22:43:54 2023] GET /search_species/Orobanche_cumana => generated 3580 bytes in 848 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/208] 127.0.0.1 () {34 vars in 624 bytes} [Sat Jul 22 22:44:07 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 25 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/209] 127.0.0.1 () {34 vars in 661 bytes} [Sat Jul 22 23:00:04 2023] GET /static/css/base.css => generated 1367 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/210] 127.0.0.1 () {34 vars in 700 bytes} [Sat Jul 22 23:00:04 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 52 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/211] 127.0.0.1 () {34 vars in 614 bytes} [Sat Jul 22 23:15:09 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 37 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 124/212] 127.0.0.1 () {34 vars in 584 bytes} [Sun Jul 23 01:32:13 2023] GET /static/img/waiting.gif => generated 4181 bytes in 1034 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/213] 127.0.0.1 () {34 vars in 600 bytes} [Sun Jul 23 02:44:17 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 125 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 5)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 125/214] 127.0.0.1 () {28 vars in 427 bytes} [Sun Jul 23 05:37:16 2023] GET /robots.txt => generated 4150 bytes in 1078 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/215] 127.0.0.1 () {34 vars in 685 bytes} [Sun Jul 23 05:37:18 2023] GET /static/css/base.css => generated 1367 bytes in 66 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/216] 127.0.0.1 () {34 vars in 724 bytes} [Sun Jul 23 05:37:18 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 31 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/217] 127.0.0.1 () {34 vars in 731 bytes} [Sun Jul 23 05:37:19 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 25 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/218] 127.0.0.1 () {34 vars in 666 bytes} [Sun Jul 23 08:28:57 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 117 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: 0|req: 126/219] 127.0.0.1 () {32 vars in 626 bytes} [Sun Jul 23 09:28:47 2023] GET / => generated 5680 bytes in 204 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/220] 127.0.0.1 () {32 vars in 546 bytes} [Sun Jul 23 09:28:48 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 25 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/221] 127.0.0.1 () {32 vars in 553 bytes} [Sun Jul 23 09:28:48 2023] GET /static/css/base.css => generated 1367 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/222] 127.0.0.1 () {32 vars in 592 bytes} [Sun Jul 23 09:28:48 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 2 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/223] 127.0.0.1 () {32 vars in 599 bytes} [Sun Jul 23 09:28:48 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/224] 127.0.0.1 () {32 vars in 689 bytes} [Sun Jul 23 09:28:48 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 38 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/225] 127.0.0.1 () {32 vars in 687 bytes} [Sun Jul 23 09:28:48 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/226] 127.0.0.1 () {32 vars in 679 bytes} [Sun Jul 23 09:28:48 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/227] 127.0.0.1 () {32 vars in 635 bytes} [Sun Jul 23 09:28:48 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 34 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/228] 127.0.0.1 () {32 vars in 621 bytes} [Sun Jul 23 09:28:48 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 41 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 2)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 127/229] 127.0.0.1 () {32 vars in 583 bytes} [Sun Jul 23 09:28:55 2023] GET /favicon.ico => generated 4153 bytes in 57 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/230] 127.0.0.1 () {34 vars in 658 bytes} [Sun Jul 23 15:28:24 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 17 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 128/231] 127.0.0.1 () {34 vars in 584 bytes} [Sun Jul 23 18:42:24 2023] GET /static/img/waiting.gif => generated 4181 bytes in 168 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 129/232] 127.0.0.1 () {34 vars in 590 bytes} [Sun Jul 23 21:31:39 2023] GET /jbrowse/Cuscuta_australis => generated 5987 bytes in 89 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 130/233] 127.0.0.1 () {34 vars in 673 bytes} [Mon Jul 24 05:11:41 2023] GET / => generated 5680 bytes in 98 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/234] 127.0.0.1 () {32 vars in 590 bytes} [Mon Jul 24 05:11:42 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 11 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/235] 127.0.0.1 () {32 vars in 544 bytes} [Mon Jul 24 05:11:42 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 3 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 5)
+[pid: 168166|app: 0|req: 131/236] 127.0.0.1 () {34 vars in 795 bytes} [Mon Jul 24 05:11:43 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 132/237] 127.0.0.1 () {34 vars in 560 bytes} [Mon Jul 24 10:57:32 2023] GET /robots.txt => generated 4145 bytes in 142 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 133/238] 127.0.0.1 () {34 vars in 604 bytes} [Mon Jul 24 10:57:40 2023] GET /jbrowse/Lindenbergia_luchunensis => generated 6092 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 134/239] 127.0.0.1 () {34 vars in 724 bytes} [Mon Jul 24 15:42:39 2023] GET / => generated 5680 bytes in 940 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/240] 127.0.0.1 () {34 vars in 708 bytes} [Mon Jul 24 15:42:40 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 30 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/241] 127.0.0.1 () {34 vars in 655 bytes} [Mon Jul 24 15:42:40 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 22 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/242] 127.0.0.1 () {34 vars in 701 bytes} [Mon Jul 24 15:42:40 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 26 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/243] 127.0.0.1 () {34 vars in 662 bytes} [Mon Jul 24 15:42:40 2023] GET /static/css/base.css => generated 1367 bytes in 42 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/244] 127.0.0.1 () {34 vars in 777 bytes} [Mon Jul 24 15:42:41 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/245] 127.0.0.1 () {34 vars in 787 bytes} [Mon Jul 24 15:42:40 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 55 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/246] 127.0.0.1 () {34 vars in 733 bytes} [Mon Jul 24 15:42:41 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 41 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/247] 127.0.0.1 () {34 vars in 719 bytes} [Mon Jul 24 15:42:41 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 44 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/248] 127.0.0.1 () {34 vars in 785 bytes} [Mon Jul 24 15:42:41 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 57 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 135/249] 127.0.0.1 () {34 vars in 681 bytes} [Mon Jul 24 15:42:42 2023] GET /favicon.ico => generated 4153 bytes in 136 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 136/250] 127.0.0.1 () {34 vars in 584 bytes} [Mon Jul 24 22:37:09 2023] GET /static/img/waiting.gif => generated 4181 bytes in 196 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 137/251] 127.0.0.1 () {34 vars in 584 bytes} [Tue Jul 25 18:46:02 2023] GET /static/img/waiting.gif => generated 4181 bytes in 807 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 138/252] 127.0.0.1 () {42 vars in 898 bytes} [Tue Jul 25 23:56:55 2023] GET / => generated 5680 bytes in 161 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/253] 127.0.0.1 () {40 vars in 769 bytes} [Tue Jul 25 23:56:56 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 76 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/254] 127.0.0.1 () {40 vars in 776 bytes} [Tue Jul 25 23:56:57 2023] GET /static/css/base.css => generated 1367 bytes in 13 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/255] 127.0.0.1 () {40 vars in 815 bytes} [Tue Jul 25 23:56:57 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 24 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/256] 127.0.0.1 () {40 vars in 822 bytes} [Tue Jul 25 23:56:57 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 18 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 1)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 139/257] 127.0.0.1 () {28 vars in 427 bytes} [Wed Jul 26 06:42:51 2023] GET /robots.txt => generated 4150 bytes in 231 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+uwsgi_proto_http_parser() -> client closed connection
+[pid: 168166|app: 0|req: 140/258] 127.0.0.1 () {34 vars in 590 bytes} [Wed Jul 26 10:21:49 2023] GET /jbrowse/Cuscuta_australis => generated 5987 bytes in 83 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 141/259] 127.0.0.1 () {34 vars in 560 bytes} [Wed Jul 26 20:40:41 2023] GET /robots.txt => generated 4145 bytes in 1353 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 142/260] 127.0.0.1 () {34 vars in 584 bytes} [Wed Jul 26 20:40:45 2023] GET /static/img/waiting.gif => generated 4181 bytes in 29 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 143/261] 127.0.0.1 () {34 vars in 584 bytes} [Thu Jul 27 18:13:48 2023] GET /static/img/waiting.gif => generated 4181 bytes in 1095 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/262] 127.0.0.1 () {34 vars in 666 bytes} [Thu Jul 27 19:02:21 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 304 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/263] 127.0.0.1 () {34 vars in 668 bytes} [Thu Jul 27 23:55:33 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 52 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+uwsgi_proto_http_parser() -> client closed connection
+[pid: 168166|app: 0|req: 144/264] 127.0.0.1 () {24 vars in 255 bytes} [Fri Jul 28 06:21:45 2023] GET / => generated 5680 bytes in 459 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 145/265] 127.0.0.1 () {38 vars in 682 bytes} [Fri Jul 28 06:22:12 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 146/266] 127.0.0.1 () {30 vars in 584 bytes} [Fri Jul 28 06:22:12 2023] GET / => generated 5680 bytes in 24 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/267] 127.0.0.1 () {30 vars in 504 bytes} [Fri Jul 28 06:22:12 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 22 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/268] 127.0.0.1 () {30 vars in 550 bytes} [Fri Jul 28 06:22:12 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 246 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 2)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 147/269] 127.0.0.1 () {38 vars in 704 bytes} [Fri Jul 28 06:22:22 2023] GET /favicon.ico => generated 4153 bytes in 81 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/270] 127.0.0.1 () {34 vars in 600 bytes} [Fri Jul 28 06:51:03 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 44 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 5)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 148/271] 127.0.0.1 () {28 vars in 480 bytes} [Fri Jul 28 13:53:08 2023] GET /favicon.ico => generated 4153 bytes in 170 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/272] 127.0.0.1 () {34 vars in 614 bytes} [Fri Jul 28 14:18:55 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 36 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 149/273] 127.0.0.1 () {34 vars in 584 bytes} [Fri Jul 28 17:57:32 2023] GET /static/img/waiting.gif => generated 4181 bytes in 52 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 150/274] 127.0.0.1 () {34 vars in 560 bytes} [Sat Jul 29 02:25:18 2023] GET /robots.txt => generated 4145 bytes in 135 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 151/275] 127.0.0.1 () {34 vars in 554 bytes} [Sat Jul 29 02:25:25 2023] GET /jbrowse => generated 0 bytes in 27 msecs (HTTP/1.1 301) 4 headers in 158 bytes (1 switches on core 5)
+Not Found: /sitemaps.xml
+[pid: 168166|app: 0|req: 152/276] 127.0.0.1 () {28 vars in 482 bytes} [Sat Jul 29 05:08:23 2023] GET /sitemaps.xml => generated 4151 bytes in 123 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+Not Found: /sitemaps.xml
+[pid: 168166|app: 0|req: 153/277] 127.0.0.1 () {34 vars in 564 bytes} [Sat Jul 29 06:08:17 2023] GET /sitemaps.xml => generated 4151 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 0)
+Not Found: /sitemaps.xml
+[pid: 168166|app: 0|req: 154/278] 127.0.0.1 () {34 vars in 564 bytes} [Sat Jul 29 10:50:51 2023] GET /sitemaps.xml => generated 4151 bytes in 153 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+Not Found: /sitemaps.xml
+[pid: 168166|app: 0|req: 155/279] 127.0.0.1 () {34 vars in 564 bytes} [Sat Jul 29 11:55:18 2023] GET /sitemaps.xml => generated 4151 bytes in 16 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 156/280] 127.0.0.1 () {34 vars in 614 bytes} [Sat Jul 29 15:06:02 2023] GET /search_species/Phelipanche_aegyptiaca => generated 3598 bytes in 909 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 1)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 157/281] 127.0.0.1 () {34 vars in 584 bytes} [Sat Jul 29 18:01:29 2023] GET /static/img/waiting.gif => generated 4181 bytes in 572 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 158/282] 127.0.0.1 () {34 vars in 540 bytes} [Sat Jul 29 21:46:43 2023] GET / => generated 5680 bytes in 106 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 159/283] 127.0.0.1 () {34 vars in 550 bytes} [Sun Jul 30 09:48:50 2023] GET /blast => generated 4157 bytes in 128 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 160/284] 127.0.0.1 () {34 vars in 590 bytes} [Sun Jul 30 17:23:28 2023] GET /jbrowse/Cuscuta_australis => generated 5987 bytes in 78 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 161/285] 127.0.0.1 () {34 vars in 584 bytes} [Sun Jul 30 22:11:44 2023] GET /static/img/waiting.gif => generated 4181 bytes in 142 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 162/286] 127.0.0.1 () {34 vars in 540 bytes} [Mon Jul 31 01:14:01 2023] GET / => generated 5680 bytes in 98 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+Not Found: /robots.txt
+[pid: 168166|app: 0|req: 163/287] 127.0.0.1 () {34 vars in 560 bytes} [Mon Jul 31 07:09:58 2023] GET /robots.txt => generated 4145 bytes in 171 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+Not Found: /sitemap_index.xml
+[pid: 168166|app: 0|req: 164/288] 127.0.0.1 () {34 vars in 574 bytes} [Mon Jul 31 07:10:07 2023] GET /sitemap_index.xml => generated 4166 bytes in 13 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+Not Found: /sitemap_index.xml
+[pid: 168166|app: 0|req: 165/289] 127.0.0.1 () {34 vars in 574 bytes} [Mon Jul 31 08:14:14 2023] GET /sitemap_index.xml => generated 4166 bytes in 15 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+Not Found: /sitemap_index.xml
+[pid: 168166|app: 0|req: 166/290] 127.0.0.1 () {34 vars in 574 bytes} [Mon Jul 31 10:37:36 2023] GET /sitemap_index.xml => generated 4166 bytes in 165 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 4)
+[pid: 168166|app: -1|req: -1/291] 127.0.0.1 () {34 vars in 668 bytes} [Mon Jul 31 11:17:47 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 83 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+Not Found: /sitemap_index.xml
+[pid: 168166|app: 0|req: 167/292] 127.0.0.1 () {34 vars in 574 bytes} [Mon Jul 31 11:40:12 2023] GET /sitemap_index.xml => generated 4166 bytes in 14 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 168/293] 127.0.0.1 () {34 vars in 550 bytes} [Mon Jul 31 13:16:56 2023] GET /blast => generated 4157 bytes in 120 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 3)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 169/294] 127.0.0.1 () {34 vars in 584 bytes} [Mon Jul 31 16:19:47 2023] GET /static/img/waiting.gif => generated 4181 bytes in 810 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 170/295] 127.0.0.1 () {34 vars in 673 bytes} [Mon Jul 31 17:14:58 2023] GET / => generated 5680 bytes in 59 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/296] 127.0.0.1 () {32 vars in 544 bytes} [Mon Jul 31 17:14:58 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 20 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/297] 127.0.0.1 () {32 vars in 597 bytes} [Mon Jul 31 17:14:58 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 74 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/298] 127.0.0.1 () {32 vars in 590 bytes} [Mon Jul 31 17:14:58 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 58 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: 0|req: 171/299] 127.0.0.1 () {34 vars in 795 bytes} [Mon Jul 31 17:15:00 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+Not Found: /static/img/waiting.gif
+[pid: 168166|app: 0|req: 172/300] 127.0.0.1 () {28 vars in 502 bytes} [Mon Jul 31 20:28:31 2023] GET /static/img/waiting.gif => generated 4181 bytes in 552 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 173/301] 127.0.0.1 () {34 vars in 540 bytes} [Tue Aug  1 00:36:33 2023] GET / => generated 5680 bytes in 857 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 1)
+[pid: 168166|app: -1|req: -1/302] 127.0.0.1 () {34 vars in 586 bytes} [Tue Aug  1 00:36:51 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 156 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/303] 127.0.0.1 () {34 vars in 624 bytes} [Tue Aug  1 00:36:55 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 27 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/304] 127.0.0.1 () {34 vars in 565 bytes} [Tue Aug  1 00:52:43 2023] GET /static/css/base.css => generated 1367 bytes in 7 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/305] 127.0.0.1 () {34 vars in 619 bytes} [Tue Aug  1 00:52:43 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 29 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 3)
+[pid: 168166|app: 0|req: 174/306] 127.0.0.1 () {34 vars in 540 bytes} [Tue Aug  1 04:36:46 2023] GET / => generated 5680 bytes in 578 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 175/307] 127.0.0.1 () {28 vars in 480 bytes} [Tue Aug  1 09:21:34 2023] GET /favicon.ico => generated 4153 bytes in 798 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 176/308] 127.0.0.1 () {34 vars in 724 bytes} [Tue Aug  1 11:29:47 2023] GET / => generated 5680 bytes in 51 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/309] 127.0.0.1 () {34 vars in 708 bytes} [Tue Aug  1 11:29:47 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 23 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/310] 127.0.0.1 () {34 vars in 701 bytes} [Tue Aug  1 11:29:47 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 12 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/311] 127.0.0.1 () {34 vars in 662 bytes} [Tue Aug  1 11:29:47 2023] GET /static/css/base.css => generated 1367 bytes in 17 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/312] 127.0.0.1 () {34 vars in 655 bytes} [Tue Aug  1 11:29:47 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 17 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/313] 127.0.0.1 () {34 vars in 787 bytes} [Tue Aug  1 11:29:47 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 32 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/314] 127.0.0.1 () {34 vars in 777 bytes} [Tue Aug  1 11:29:47 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 29 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/315] 127.0.0.1 () {34 vars in 719 bytes} [Tue Aug  1 11:29:47 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 42 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/316] 127.0.0.1 () {34 vars in 733 bytes} [Tue Aug  1 11:29:47 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 45 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/317] 127.0.0.1 () {34 vars in 785 bytes} [Tue Aug  1 11:29:47 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 52 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 177/318] 127.0.0.1 () {34 vars in 681 bytes} [Tue Aug  1 11:29:48 2023] GET /favicon.ico => generated 4153 bytes in 28 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 178/319] 127.0.0.1 () {34 vars in 700 bytes} [Tue Aug  1 12:46:16 2023] GET / => generated 5680 bytes in 116 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: -1|req: -1/320] 127.0.0.1 () {34 vars in 620 bytes} [Tue Aug  1 12:46:16 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 5 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/321] 127.0.0.1 () {34 vars in 627 bytes} [Tue Aug  1 12:46:16 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/322] 127.0.0.1 () {34 vars in 666 bytes} [Tue Aug  1 12:46:16 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/323] 127.0.0.1 () {34 vars in 673 bytes} [Tue Aug  1 12:46:16 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/324] 127.0.0.1 () {34 vars in 749 bytes} [Tue Aug  1 12:46:17 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/325] 127.0.0.1 () {34 vars in 747 bytes} [Tue Aug  1 12:46:17 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/326] 127.0.0.1 () {34 vars in 739 bytes} [Tue Aug  1 12:46:17 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/327] 127.0.0.1 () {34 vars in 695 bytes} [Tue Aug  1 12:46:17 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/328] 127.0.0.1 () {34 vars in 681 bytes} [Tue Aug  1 12:46:17 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 4)
+Not Found: /favicon.ico
+[pid: 168166|app: 0|req: 179/329] 127.0.0.1 () {34 vars in 643 bytes} [Tue Aug  1 12:46:18 2023] GET /favicon.ico => generated 4153 bytes in 70 msecs (HTTP/1.1 404) 5 headers in 174 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 180/330] 127.0.0.1 () {36 vars in 805 bytes} [Tue Aug  1 12:46:19 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 151 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 182/331] 127.0.0.1 () {36 vars in 656 bytes} [Tue Aug  1 12:46:24 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/332] 127.0.0.1 () {34 vars in 646 bytes} [Tue Aug  1 12:46:24 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/333] 127.0.0.1 () {34 vars in 600 bytes} [Tue Aug  1 12:46:24 2023] GET /static/css/base.css => generated 1367 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/335] 127.0.0.1 () {34 vars in 639 bytes} [Tue Aug  1 12:46:24 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/335] 127.0.0.1 () {34 vars in 593 bytes} [Tue Aug  1 12:46:24 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/336] 127.0.0.1 () {34 vars in 711 bytes} [Tue Aug  1 12:46:25 2023] GET /static/img/Cuscuta_australis(%E5%8D%97%E6%96%B9%E8%8F%9F%E4%B8%9D%E5%AD%90).jpg => generated 915376 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/339] 127.0.0.1 () {34 vars in 701 bytes} [Tue Aug  1 12:46:25 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/339] 127.0.0.1 () {34 vars in 657 bytes} [Tue Aug  1 12:46:25 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/339] 127.0.0.1 () {34 vars in 709 bytes} [Tue Aug  1 12:46:25 2023] GET /static/img/Orobanche_cumana(%E5%90%91%E6%97%A5%E8%91%B5%E5%88%97%E5%BD%93).jpg => generated 931838 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/340] 127.0.0.1 () {34 vars in 643 bytes} [Tue Aug  1 12:46:25 2023] GET /static/img/Gastrodia_elata.jpg => generated 3174179 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 116 bytes (0 switches on core 2)
+[pid: 168166|app: 0|req: 183/341] 127.0.0.1 () {36 vars in 720 bytes} [Tue Aug  1 12:46:29 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 3 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/342] 127.0.0.1 () {36 vars in 735 bytes} [Tue Aug  1 12:46:29 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/343] 127.0.0.1 () {36 vars in 689 bytes} [Tue Aug  1 12:46:29 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/344] 127.0.0.1 () {36 vars in 728 bytes} [Tue Aug  1 12:46:29 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 2)
+[pid: 168166|app: -1|req: -1/345] 127.0.0.1 () {36 vars in 682 bytes} [Tue Aug  1 12:46:29 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 1)
+[pid: 168166|app: 0|req: 183/346] 127.0.0.1 () {44 vars in 977 bytes} [Tue Aug  1 12:46:23 2023] POST /search_species/Cuscuta_australis => generated 3610 bytes in 32586 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 184/347] 127.0.0.1 () {34 vars in 724 bytes} [Tue Aug  1 12:54:22 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 2)
+[pid: 168166|app: -1|req: -1/348] 127.0.0.1 () {34 vars in 708 bytes} [Tue Aug  1 12:54:22 2023] GET /static/css/bootstrap/css/bootstrap.min.css => generated 220780 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 113 bytes (0 switches on core 1)
+[pid: 168166|app: -1|req: -1/349] 127.0.0.1 () {34 vars in 655 bytes} [Tue Aug  1 12:54:22 2023] GET /static/js/jquery.min.js => generated 107944 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 127 bytes (0 switches on core 5)
+[pid: 168166|app: -1|req: -1/350] 127.0.0.1 () {34 vars in 662 bytes} [Tue Aug  1 12:54:22 2023] GET /static/css/base.css => generated 1367 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 111 bytes (0 switches on core 0)
+[pid: 168166|app: -1|req: -1/351] 127.0.0.1 () {34 vars in 701 bytes} [Tue Aug  1 12:54:22 2023] GET /static/js/bootstrap/js/bootstrap.bundle.min.js => generated 80599 bytes in 0 msecs via sendfile() (HTTP/1.1 200) 3 headers in 126 bytes (0 switches on core 4)
+[pid: 168166|app: -1|req: -1/352] 127.0.0.1 () {34 vars in 733 bytes} [Tue Aug  1 12:54:22 2023] GET /static/img/Phelipanche_aegyptiaca.jpg => generated 718448 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 3)
+[pid: 168166|app: -1|req: -1/353] 127.0.0.1 () {34 vars in 777 bytes} [Tue Aug  1 12:54:22 2023] GET /static/img/Lindenbergia_luchunensis(%E9%92%9F%E8%90%BC%E8%8D%89).jpg => generated 695098 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 115 bytes (0 switches on core 2)
+[pid: 168166|app: 0|req: 185/354] 127.0.0.1 () {36 vars in 779 bytes} [Tue Aug  1 12:54:25 2023] GET /search/ => generated 3508 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 186/355] 127.0.0.1 () {36 vars in 782 bytes} [Tue Aug  1 12:54:26 2023] GET /blast => generated 4157 bytes in 19 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 5)
+[pid: 168166|app: -1|req: -1/356] 127.0.0.1 () {34 vars in 650 bytes} [Tue Aug  1 12:54:26 2023] GET /static/js/blast.js => generated 4771 bytes in 14 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 0)
+[pid: 168166|app: 0|req: 187/357] 127.0.0.1 () {36 vars in 694 bytes} [Tue Aug  1 12:54:27 2023] GET /blast?_=1690865666593 => generated 2898 bytes in 20 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 188/358] 127.0.0.1 () {36 vars in 788 bytes} [Tue Aug  1 12:54:29 2023] GET /download/ => generated 3735 bytes in 2 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 189/359] 127.0.0.1 () {36 vars in 784 bytes} [Tue Aug  1 12:54:30 2023] GET /blast => generated 4157 bytes in 47 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 190/360] 127.0.0.1 () {36 vars in 694 bytes} [Tue Aug  1 12:54:30 2023] GET /blast?_=1690865669989 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 191/361] 127.0.0.1 () {36 vars in 784 bytes} [Tue Aug  1 12:54:30 2023] GET /search/ => generated 3508 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 192/362] 127.0.0.1 () {36 vars in 772 bytes} [Tue Aug  1 12:54:31 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 193/363] 127.0.0.1 () {36 vars in 829 bytes} [Tue Aug  1 12:54:31 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 194/364] 127.0.0.1 () {44 vars in 1002 bytes} [Tue Aug  1 12:54:36 2023] POST /search_species/Cuscuta_australis => generated 4494 bytes in 72 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 195/365] 127.0.0.1 () {34 vars in 724 bytes} [Tue Aug  1 12:55:19 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 196/366] 127.0.0.1 () {34 vars in 724 bytes} [Tue Aug  1 13:46:59 2023] GET / => generated 5680 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 3)
+[pid: 168166|app: 0|req: 197/367] 127.0.0.1 () {36 vars in 829 bytes} [Tue Aug  1 13:47:00 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 2 msecs (HTTP/1.1 200) 7 headers in 317 bytes (1 switches on core 2)
+[pid: 168166|app: 0|req: 199/368] 127.0.0.1 () {44 vars in 1001 bytes} [Tue Aug  1 13:47:01 2023] POST /search_species/Cuscuta_australis => generated 31867 bytes in 3150 msecs (HTTP/1.1 200) 7 headers in 318 bytes (1 switches on core 1)
+[pid: 168166|app: 0|req: 199/369] 127.0.0.1 () {44 vars in 1001 bytes} [Tue Aug  1 13:47:01 2023] POST /search_species/Cuscuta_australis => generated 31867 bytes in 3154 msecs (HTTP/1.1 200) 7 headers in 318 bytes (1 switches on core 5)
+[pid: 168166|app: 0|req: 200/370] 127.0.0.1 () {36 vars in 847 bytes} [Tue Aug  1 13:47:06 2023] GET /search_result/C000N0003E0 => generated 43501 bytes in 13628 msecs (HTTP/1.1 200) 5 headers in 168 bytes (1 switches on core 0)
+[pid: 168166|app: 0|req: 201/371] 127.0.0.1 () {34 vars in 724 bytes} [Tue Aug  1 13:56:51 2023] GET / => generated 5680 bytes in 3 msecs (HTTP/1.1 200) 5 headers in 167 bytes (1 switches on core 4)
+[pid: 168166|app: 0|req: 202/372] 127.0.0.1 () {36 vars in 775 bytes} [Tue Aug  1 13:56:53 2023] GET /blast => generated 4157 bytes in 9 msecs (HTTP/1.1 200) 8 headers in 342 bytes (1 switches on core 0)
+[pid: 168166|app: -1|req: -1/373] 127.0.0.1 () {34 vars in 650 bytes} [Tue Aug  1 13:56:53 2023] GET /static/js/blast.js => generated 5940 bytes in 1 msecs via sendfile() (HTTP/1.1 200) 3 headers in 125 bytes (0 switches on core 3)
+[pid: 168166|app: 0|req: 203/374] 127.0.0.1 () {36 vars in 694 bytes} [Tue Aug  1 13:56:53 2023] GET /blast?_=1690869412789 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 6 headers in 184 bytes (1 switches on core 2)
+SIGINT/SIGTERM received...killing workers...
+worker 1 buried after 4 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.20 (64bit) on [Tue Aug  1 13:57:16 2023] ***
+compiled with version: 9.4.0 on 22 December 2021 18:19:25
+os: Linux-3.10.0-693.5.2.el7.x86_64 #1 SMP Fri Oct 20 20:32:50 UTC 2017
+nodename: cn04.local
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 56
+current working directory: /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi
+writing pidfile to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/uwsgi/PPB.pid
+detected binary path: /lustre/home/web_base/Program/miniconda3/envs/web_create/bin/uwsgi
+chdir() to /lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 4096
+building mime-types dictionary from file /etc/mime.types...1060 entry found
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+*** RRDtool library available at 0x5635325ed730 ***
+uwsgi socket 0 bound to TCP address 0.0.0.0:8887 fd 3
+Python version: 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21)  [GCC 9.4.0]
+Python main interpreter initialized at 0x56353260c3f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 250400 bytes (244 KB) for 6 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x56353260c3f0 pid: 192498 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 192498)
+spawned uWSGI worker 1 (pid: 192509, cores: 6)
+[pid: 192509|app: 0|req: 1/1] 127.0.0.1 () {38 vars in 806 bytes} [Tue Aug  1 13:57:19 2023] GET /blast => generated 4217 bytes in 397 msecs (HTTP/1.1 200) 6 headers in 317 bytes (1 switches on core 0)
+[pid: 192509|app: -1|req: -1/2] 127.0.0.1 () {36 vars in 737 bytes} [Tue Aug  1 13:57:19 2023] GET /static/js/blast.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 1)
+[pid: 192509|app: 0|req: 2/3] 127.0.0.1 () {36 vars in 726 bytes} [Tue Aug  1 13:57:19 2023] GET /blast?_=1690869439524 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 4 headers in 127 bytes (1 switches on core 4)
+[pid: 192509|app: 0|req: 3/4] 127.0.0.1 () {36 vars in 812 bytes} [Tue Aug  1 13:57:36 2023] GET /blast => generated 4217 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 317 bytes (1 switches on core 2)
+[pid: 192509|app: -1|req: -1/5] 127.0.0.1 () {36 vars in 737 bytes} [Tue Aug  1 13:57:37 2023] GET /static/js/blast.js => generated 0 bytes in 0 msecs (HTTP/1.1 304) 0 headers in 29 bytes (0 switches on core 5)
+[pid: 192509|app: 0|req: 4/6] 127.0.0.1 () {36 vars in 726 bytes} [Tue Aug  1 13:57:37 2023] GET /blast?_=1690869456673 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 4 headers in 127 bytes (1 switches on core 0)
+[pid: 192509|app: 0|req: 5/7] 127.0.0.1 () {36 vars in 816 bytes} [Tue Aug  1 13:57:37 2023] GET /search/ => generated 3508 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 192509|app: 0|req: 6/8] 127.0.0.1 () {36 vars in 804 bytes} [Tue Aug  1 13:57:38 2023] GET / => generated 5680 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 4)
+[pid: 192509|app: 0|req: 7/9] 127.0.0.1 () {36 vars in 807 bytes} [Tue Aug  1 13:57:39 2023] GET /blast => generated 4217 bytes in 7 msecs (HTTP/1.1 200) 6 headers in 317 bytes (1 switches on core 3)
+[pid: 192509|app: 0|req: 8/10] 127.0.0.1 () {36 vars in 726 bytes} [Tue Aug  1 13:57:39 2023] GET /blast?_=1690869459485 => generated 2898 bytes in 2 msecs (HTTP/1.1 200) 4 headers in 127 bytes (1 switches on core 2)
+[pid: 192509|app: 0|req: 9/11] 127.0.0.1 () {36 vars in 816 bytes} [Tue Aug  1 13:57:44 2023] GET /search/ => generated 3508 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 5)
+[pid: 192509|app: 0|req: 10/12] 127.0.0.1 () {36 vars in 804 bytes} [Tue Aug  1 13:57:48 2023] GET / => generated 5680 bytes in 7 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 0)
+[pid: 192509|app: 0|req: 11/13] 127.0.0.1 () {36 vars in 861 bytes} [Tue Aug  1 13:57:49 2023] GET /search_species/Cuscuta_australis => generated 3583 bytes in 21 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 192509|app: 0|req: 12/14] 127.0.0.1 () {34 vars in 540 bytes} [Tue Aug  1 13:59:38 2023] GET / => generated 5680 bytes in 8 msecs (HTTP/1.1 200) 3 headers in 110 bytes (1 switches on core 2)
+[pid: 192509|app: 0|req: 13/15] 127.0.0.1 () {44 vars in 1033 bytes} [Tue Aug  1 14:16:14 2023] POST /search_species/Cuscuta_australis => generated 31946 bytes in 329 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 3)
+[pid: 192509|app: 0|req: 14/16] 127.0.0.1 () {36 vars in 861 bytes} [Tue Aug  1 14:16:31 2023] GET /search_species/Cuscuta_australis => generated 3662 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 192509|app: 0|req: 15/17] 127.0.0.1 () {36 vars in 859 bytes} [Tue Aug  1 14:16:35 2023] GET /search_species/Orobanche_cumana => generated 3659 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 1)
+[pid: 192509|app: 0|req: 16/18] 127.0.0.1 () {44 vars in 1030 bytes} [Tue Aug  1 14:16:36 2023] POST /search_species/Orobanche_cumana => generated 33709 bytes in 2625 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 4)
+[pid: 192509|app: 0|req: 17/19] 127.0.0.1 () {36 vars in 859 bytes} [Tue Aug  1 14:16:53 2023] GET /search_species/Orobanche_cumana => generated 3659 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 5)
+[pid: 192509|app: 0|req: 18/20] 127.0.0.1 () {36 vars in 871 bytes} [Tue Aug  1 14:16:55 2023] GET /search_species/Phelipanche_aegyptiaca => generated 3677 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 0)
+[pid: 192509|app: 0|req: 19/21] 127.0.0.1 () {44 vars in 1048 bytes} [Tue Aug  1 14:16:57 2023] POST /search_species/Phelipanche_aegyptiaca => generated 34241 bytes in 2422 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 1)
+[pid: 192509|app: 0|req: 20/22] 127.0.0.1 () {36 vars in 871 bytes} [Tue Aug  1 14:17:13 2023] GET /search_species/Phelipanche_aegyptiaca => generated 3677 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 2)
+[pid: 192509|app: 0|req: 21/23] 127.0.0.1 () {36 vars in 875 bytes} [Tue Aug  1 14:17:16 2023] GET /search_species/Lindenbergia_luchunensis => generated 3683 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 5)
+[pid: 192509|app: 0|req: 22/24] 127.0.0.1 () {44 vars in 1054 bytes} [Tue Aug  1 14:17:18 2023] POST /search_species/Lindenbergia_luchunensis => generated 33791 bytes in 1506 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 0)
+[pid: 192509|app: 0|req: 23/25] 127.0.0.1 () {36 vars in 875 bytes} [Tue Aug  1 14:17:27 2023] GET /search_species/Lindenbergia_luchunensis => generated 3683 bytes in 3027 msecs (HTTP/1.1 200) 5 headers in 292 bytes (2 switches on core 4)
+[pid: 192509|app: 0|req: 24/26] 127.0.0.1 () {36 vars in 857 bytes} [Tue Aug  1 14:17:32 2023] GET /search_species/Gastrodia_elata => generated 3656 bytes in 7 msecs (HTTP/1.1 200) 5 headers in 292 bytes (1 switches on core 3)
+[pid: 192509|app: 0|req: 25/27] 127.0.0.1 () {44 vars in 1027 bytes} [Tue Aug  1 14:17:34 2023] POST /search_species/Gastrodia_elata => generated 33140 bytes in 4331 msecs (HTTP/1.1 200) 5 headers in 293 bytes (1 switches on core 2)

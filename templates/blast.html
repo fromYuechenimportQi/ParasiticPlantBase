@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form id="blt" action="/blast" method="post">
+    {% csrf_token %}
+    <label style="font-size:18px;">Select a Species</label><br>
+    <select name="species" id="species">
+    </select>
+    <br>
+    <br>
+    <label style="font-size:18px;">Select a Database</label><br>
+    <select name="databaseOptions" id="databaseOptions">
+    </select>
+    <br>
+    <br>
+    <label for="gene" style="font-size:18px;">Select a BLAST type</label>
+    <br>
+    <label class="radio-inline">
+        <input type="radio" name="blastOptions" value="blastn" checked>blastn(nucle. vs nucle.)</label>
+    <label class="radio-inline">
+        <input type="radio" name="blastOptions" value="blastp">blastp(prot. vs prot.)</label>
+    <label class="radio-inline">
+        <input type="radio" name="blastOptions" value="tblastn">tblastn(prot. vs nucle.)</label>
+    <label class="radio-inline">
+        <input type="radio" name="blastOptions" value="blastx">blastx(nucle. vs prot.)</label>
+    <!-- <input type="textarea" name="seq_for_blast" id=""> -->
+    <br>
+    <br>
+    <label for="gene" style="font-size:18px;">Input sequence</label>
+    <textarea class="form-control" name="seq_for_blast" id="" rows="10"></textarea>
+    <input value="Submit" type="submit" id="submit" class="btn btn-success"
+        style="float:right;margin-top:5px;font-family:'Courier New', Courier, monospace">
+    <a href='#' id="example" style="float:left">example</a>
+    <div style="clear:both;"></div>
+</form>
+<script src="{% static 'js/blast.js' %}">
+</script>
+{% endblock %}
+
+
+<style>
+    .radio-inline {
+        font-size: 16px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #loading {
+        position: absolute;
+        background-color: #fff;
+        border: 2px solid black;
+        text-align: center;
+        width: 250px;
+        height: 50px;
+        left: 50%;
+        top: 50%;
+        margin-left: -125px;
+        margin-top: -25px;
+        z-index: 100;
+    }
+
+    #loading>* {
+        float: left;
+        margin-left: 25px;
+        margin-right: 15px;
+    }
+
+    #loading>img {
+        width: 40px;
+    }
+</style>

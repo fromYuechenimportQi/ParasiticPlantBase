@@ -1,0 +1,102 @@
+[
+    {
+        "species": "Cuscuta_australis",
+        "information": [
+            {
+                "description": "Cuscuta_australis_cds",
+                "type": "cds",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/cds.fasta"
+            },
+            {
+                "description": "Cuscuta_australis_protein",
+                "type": "protein",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/protein.fasta"
+            },
+            {
+                "description": "Cuscuta_australis_genome",
+                "type": "genome",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Cuscuta_australis/genome.fasta"
+            }
+        ]
+    },
+    {
+        "species": "Gastrodia_elata",
+        "information": [
+            {
+                "description": "Gastrodia_elata_cds",
+                "type": "cds",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Gastrodia_elata/cds.fasta"
+            },
+            {
+                "description": "Gastrodia_elata_protein",
+                "type": "protein",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Gastrodia_elata/protein.fasta"
+            },
+            {
+                "description": "Gastrodia_elata_genome",
+                "type": "genome",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Gastrodia_elata/genome.fasta"
+            }
+        ]
+    },
+    {
+        "species": "Lindenbergia_luchunensis",
+        "information": [
+            {
+                "description": "Lindenbergia_luchunensis_cds",
+                "type": "cds",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Lindenbergia_luchunensis/cds.fasta"
+            },
+            {
+                "description": "Lindenbergia_luchunensis_protein",
+                "type": "protein",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Lindenbergia_luchunensis/protein.fasta"
+            },
+            {
+                "description": "Lindenbergia_luchunensis_genome",
+                "type": "genome",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Lindenbergia_luchunensis/genome.fasta"
+            }
+        ]
+    },
+    {
+        "species": "Orobanche_cumana",
+        "information": [
+            {
+                "description": "Orobanche_cumana_cds",
+                "type": "cds",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Orobanche_cumana/cds.fasta"
+            },
+            {
+                "description": "Orobanche_cumana_protein",
+                "type": "protein",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Orobanche_cumana/pritein.fasta"
+            },
+            {
+                "description": "Orobanche_cumana_genome",
+                "type": "genome",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Orobanche_cumana/genome.fasta"
+            }
+        ]
+    },
+    {
+        "species": "Phelipanche_aegyptiaca",
+        "information": [
+            {
+                "description": "Phelipanche_aegyptiaca_cds",
+                "type": "cds",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/cds.fasta"
+            },
+            {
+                "description": "Phelipanche_aegyptiaca_protein",
+                "type": "protein",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/protein.fasta"
+            },
+            {
+                "description": "Phelipanche_aegyptiaca_genome",
+                "type": "genome",
+                "path": "/lustre/home/web_base/Work/yuechen/ParasiticPlantsBase_bak/Databases/Phelipanche_aegyptiaca/genome.fasta"
+            }
+        ]
+    }
+]

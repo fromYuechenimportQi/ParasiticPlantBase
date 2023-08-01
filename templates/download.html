@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}
+download
+{% endblock%}
+{% block content %}
+{% for info in species_infos %}
+<span class="links">
+    <em>{{info.species_name}}</em>:
+    <a href="{{info.download_link}}">{{info.download_link}}</a>
+</span>
+
+{% endfor %}
+<style>
+    .links {
+        display: block;
+        margin: 0 0 15px 0;
+        font-size: 18px;
+    }
+
+    .links>a {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

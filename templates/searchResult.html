@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} search result {% endblock %}
+{% block content %}
+{% load ppbTags %}
+<h4>{{gene_info.gene_id}}</h4>
+<h5><strong>{{gene_info.chromosome}}: {{gene_info.gene_location}}</strong><a
+        href="{% url 'jbrowse_species' species_name %}?location={{gene_info.chromosome}}:{{gene_info.gene_location}}"
+        style="color:blue;text-decoration:underline;"> View
+        in
+        jbrowse</a>
+</h5>
+<h5><strong>Strand: {{gene_info.gene_strand}}</strong></h5>
+<h5><strong>Transcript count: {{results|length}}</strong></h5>
+
+<h5>gene total sequence</h5>
+<textarea cols="125" rows="10" readonly>{{gene_info.gene_seq}}</textarea>
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    {% for result in results %}
+    <li class="nav-item" role="presentation">
+        <button class="nav-link {% if forloop.first %}active{% endif %}" id="T00{{forloop.counter}}-tab"
+            data-bs-toggle="tab" data-bs-target="#T00{{forloop.counter}}-tab-pane" type="button" role="tab"
+            aria-controls="T00{{forloop.counter}}-tab-pane" aria-selected="false">T00{{forloop.counter}}</button>
+    </li>
+    {% endfor %}
+</ul>
+<div class="tab-content" id="myTabContent">
+
+    {% for result in results %}
+    <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="T00{{forloop.counter}}-tab-pane"
+        role="tabpanel" aria-labelledby="T00{{forloop.counter}}-tab" tabindex="0">
+        <h4>{{result.transcript_id}} ({{gene_info.chromosome}}:{{result.transcript_location}})</h4>
+        <h5><strong>Transcript sequence</strong></h5>
+        <textarea cols="125" rows="10" readonly>{{result.transcript_seq}}</textarea>
+        <h5><strong>Total CDS sequence</strong></h5>
+        <textarea cols="125" rows="10" readonly>{{result.total_cds_seq}}</textarea>
+        <h5><strong>Total protein sequence</strong></h5>
+        <textarea cols="125" rows="8" readonly>{{result.protein_seq}}</textarea>
+
+        <div id="upstream_3k_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline"><strong>upstream 3k
+                        detail</strong></h5>
+            </span>
+            <h5><strong>upstream 3k:({{result.upstream_3k_location}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{{result.upstream_3k_seq}}</textarea>
+        </div>
+        {% if result.five_prime_UTR_locations %}
+        <div id="five_prime_UTR_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline"><strong>5' UTR
+                        detail</strong></h5>
+            </span>
+            {% for name,loc in result.five_prime_UTR_locations.items %}
+            <h5><strong>{{name}} ({{gene_info.chromosome}}:{{loc}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{% with result.five_prime_UTR_seqs|get_value_from_dict:name as value %}{{ value }}
+        {% endwith %}</textarea>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if result.cds_locations %}
+        <div id="cds_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline"><strong>CDS detail</strong></h5>
+            </span>
+            {% for name,loc in result.cds_locations.items %}
+            <h5><strong>{{name}} ({{gene_info.chromosome}}:{{loc}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{% with result.cds_seqs|get_value_from_dict:name as value %}{{ value }}
+        {% endwith %}</textarea>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if result.intron_locations %}
+        <div id="intron_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline"><strong>intron
+                        detail</strong></h5>
+            </span>
+            {% for name,loc in result.intron_locations.items %}
+            <h5><strong>{{name}} ({{gene_info.chromosome}}:{{loc}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{% with result.intron_seqs|get_value_from_dict:name as value %}{{ value }}
+        {% endwith %}</textarea>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if result.three_prime_UTR_locations %}
+        <div id="three_prime_UTR_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline;"><strong>3' UTR
+                        detail</strong></h5>
+            </span>
+            {% for name,loc in result.three_prime_UTR_locations.items %}
+            <h5><strong>{{name}} ({{gene_info.chromosome}}:{{loc}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{% with result.three_prime_UTR_seqs|get_value_from_dict:name as value %}{{ value }}
+        {% endwith %}</textarea>
+
+            {% endfor %}
+        </div>
+        {% endif %}
+        <div id="downstream_3k_info">
+            <span>
+                <button type='button' class="info-toggle btn btn-primary" style="display:inline;"></button>
+                <h5 style="display:inline"><strong>downstream 3k
+                        detail</strong></h5>
+            </span>
+            <h5><strong>downstream 3k:({{result.downstream_3k_location}})</strong></h5>
+            <textarea cols="125" rows="5" readonly>{{result.downstream_3k_seq}}</textarea>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+<script>
+    $('document').ready(function () {
+        var btn = $('.info-toggle');
+        btn.parent().siblings().hide();
+        btn.click(function (event) {
+            event.preventDefault();
+            $(this).parent().siblings().slideToggle();
+        })
+    })
+</script>
+
+
+
+{% endblock %}
